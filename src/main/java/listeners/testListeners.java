@@ -4,25 +4,28 @@ import org.testng.ITestListener;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 
+import container.extentReportUtil;
+
 public class testListeners implements ITestListener{
 	
+	public static extentReportUtil extentReport;
 	public void test() {
 		
 	}
 
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		extentReportUtil extentReport=new extentReportUtil();
 	}
 
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		extentReport.extent.flush();
 	}
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		extentReport.extent.flush();
 	}
 
 	public void onTestSkipped(ITestResult result) {

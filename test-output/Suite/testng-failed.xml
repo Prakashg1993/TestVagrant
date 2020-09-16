@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="listeners.testListeners"/>
+  </listeners>
+  <test thread-count="5" name="Testvagrant(failed)">
+    <classes>
+      <class name="cukeRunner.testRunner">
+        <methods>
+          <include name="runScenario" invocation-numbers="0 1"/>
+          <include name="tearDownClass"/>
+          <include name="setUpClass"/>
+        </methods>
+      </class> <!-- cukeRunner.testRunner -->
+    </classes>
+  </test> <!-- Testvagrant(failed) -->
+</suite> <!-- Failed suite [Suite] -->

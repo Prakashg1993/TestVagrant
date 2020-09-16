@@ -11,27 +11,33 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 
-public class browserIntialize {
+import listeners.testListeners;
+
+public class browserIntialize extends testListeners {
 
 
 	public static WebDriver driver;
+	public static String testURL;
+	public static String cityName;
 	
-	public WebDriver InitializeDriver(Scenario scenario) throws IOException {
+	public WebDriver InitializeDriver() throws IOException {
 		Properties prop = new Properties();
-		FileInputStream input = new FileInputStream("src\\main\\resources\\base.properties");
+		FileInputStream input = new FileInputStream(System.getProperty("user.dir") +"\\src\\main\\resources\\base.praoperties");
 		prop.load(input);
 		String browser = prop.getProperty("browser");
+		testURL= prop.getProperty("URL");
+		cityName=prop.getProperty("city");
 		
 		if (browser.equals("chrome")) {	
-			System.setProperty("webdriver.chrome.driver", "browsers_List\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"\\browserList\\chromedriver.exe");
 			driver = new ChromeDriver();	
 		}
-		if (browser.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "browsers_List\\geckodriver.exe");
+		else if (browser.equals("firefox")) {
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") +"\\browsers_List\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
-		if (browser.equals("ie")) {
-			System.setProperty("webdriver.ie.driver", "browsers_List\\IEDriverServer.exe");
+		else if (browser.equals("ie")) {
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") +"\\browsers_List\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 		}
 		driver.manage().window().maximize();

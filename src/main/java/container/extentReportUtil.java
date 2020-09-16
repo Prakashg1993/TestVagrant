@@ -23,15 +23,14 @@ public WebDriver driver;
 	public static ExtentReports extent;
 	public static ExtentTest scenarioDef;
 	public static ExtentTest Method;
-	public ExtentTest logger;
+	public static ExtentTest logger;
 	public static String reportLocation = "Screenshots//";
 	public ExtentColor color;
 	
-	public void ExtentReport() {
+	public  extentReportUtil() {
 		extent = new ExtentReports();
 		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(
 				System.getProperty("user.dir") + "\\TestReport.html");
-
 		htmlReporter.config().setTheme(Theme.DARK);
 		htmlReporter.config().setDocumentTitle("Test Report for Appsian Application");
 		htmlReporter.config().setEncoding("utf-8");
@@ -41,17 +40,12 @@ public WebDriver driver;
 		extent.setSystemInfo("OS", "windows server 2008 R2 enterprice");
 	}
 
-	public void ExtentReportScreenshot(Throwable throwable, ExtentTest Logger, WebDriver driver) throws IOException {
-		this.driver=driver;
+	public static void ExtentReportScreenshot(Throwable throwable, ExtentTest Logger, WebDriver driver) throws IOException {
+		//this.driver=driver;
 		String timestamp = new SimpleDateFormat("yyyy_MM_dd__hh_mm_ss").format(new Date());
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File(reportLocation + timestamp + ".png"));
 		Logger.fail(throwable).addScreenCaptureFromPath(reportLocation + timestamp + ".png");
-
-	}
-
-	public void FlushReport() {
-		extent.flush();
 
 	}
 }
