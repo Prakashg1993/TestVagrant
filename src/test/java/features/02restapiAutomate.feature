@@ -1,4 +1,4 @@
-@tag2 
+@api 
 Feature: Get value from api call 
 
 Scenario: get weather details for City 

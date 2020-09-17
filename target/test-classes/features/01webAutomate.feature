@@ -1,4 +1,4 @@
-@tag1 
+@web 
 Feature: Web Automate NDTV Weather Report 
 
 Scenario: Get the details 

@@ -8,7 +8,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
         glue="stepDefinations",
         format= {"pretty","html:test-output"},
         monochrome= true ,
-        tags= {"@tag1,@tag2"}
+        tags= {"@web,@api,@comparator"}
         )
 		
 

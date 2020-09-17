@@ -24,7 +24,7 @@ public class webPage extends browserIntialize {
 
 	public launchPage launchClass;
 	public weatherPage weatherClass;
-	public  Map<String, String> weatherValues;
+	public  static Map<String, String> weatherValues;
 
 	@Given("^Launch NDTV web Page$")
 	public void launch_ndtv_web_page() throws Throwable {
@@ -39,12 +39,12 @@ public class webPage extends browserIntialize {
 			extentReportUtil.logger.log(Status.INFO,
 					"Title: " + driver.getTitle() + " Launched URL: " + driver.getCurrentUrl());
 
-			extentReportUtil.logger.assignCategory("WebPage Automate Scenario");
+			extentReportUtil.logger.assignCategory("Launch NDTV web Page");
 			extentReportUtil.logger.log(Status.PASS,
 					MarkupHelper.createLabel("Launch App login page method", ExtentColor.GREEN));
 
 		} catch (Exception e) {
-			extentReportUtil.logger.assignCategory("WebPage Automate Scenario");
+			extentReportUtil.logger.assignCategory("Launch NDTV web Page");
 			extentReportUtil.logger.log(Status.ERROR, MarkupHelper
 					.createLabel("WebPage Automate Scenario method Failed becoz of below reason", ExtentColor.RED));
 			extentReportUtil.ExtentReportScreenshot(e, extentReportUtil.logger, driver);

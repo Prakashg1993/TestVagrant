@@ -15,17 +15,18 @@ public class testListeners implements ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		extentReportUtil extentReport=new extentReportUtil();
+	
+		
 	}
 
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		extentReport.extent.flush();
+		
 	}
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		extentReport.extent.flush();
+		
 	}
 
 	public void onTestSkipped(ITestResult result) {
@@ -40,12 +41,12 @@ public class testListeners implements ITestListener{
 
 	public void onStart(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+		extentReportUtil extentReport=new extentReportUtil();
 	}
 
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
-		
+		extentReport.extent.flush();
 	}
 	
 
