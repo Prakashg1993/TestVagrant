@@ -6,8 +6,6 @@ import java.util.Map.Entry;
 
 import org.openqa.selenium.Keys;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 import com.aventstack.extentreports.markuputils.ExtentColor;
@@ -125,7 +123,7 @@ public class webPage extends browserIntialize {
 			for (Entry<String, String> mapValues : weatherValues.entrySet()) {
 				System.out.println(mapValues.getKey()+" : "+mapValues.getValue());
 			}
-			  
+			  driver.quit();
 			extentReportUtil.logger.assignCategory("Store city with temperature information");
 			extentReportUtil.logger.log(Status.PASS, MarkupHelper
 					.createLabel("Store city with temperature information", ExtentColor.GREEN));

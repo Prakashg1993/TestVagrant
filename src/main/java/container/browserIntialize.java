@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import com.aventstack.extentreports.gherkin.model.Scenario;
 
 import listeners.testListeners;
 
@@ -19,9 +18,10 @@ public class browserIntialize extends testListeners {
 	public static WebDriver driver;
 	public static String testURL;
 	public static String cityName;
+	public static Properties prop;
 	
 	public WebDriver InitializeDriver() throws IOException {
-		Properties prop = new Properties();
+		  prop = new Properties();
 		FileInputStream input = new FileInputStream(System.getProperty("user.dir") +"\\src\\main\\resources\\base.praoperties");
 		prop.load(input);
 		String browser = prop.getProperty("browser");
@@ -44,5 +44,9 @@ public class browserIntialize extends testListeners {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		return driver;
+	}
+	
+	public  void RequestBuilder() {
+	
 	}
 }
