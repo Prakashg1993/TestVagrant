@@ -1,6 +1,9 @@
 package stepDefinations;
 
-import org.openqa.selenium.By;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.openqa.selenium.Keys;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -21,17 +24,15 @@ import pageObjects.weatherPage;
 
 public class webPage extends browserIntialize {
 
-	public ExtentTest Method;
-	public ExtentTest logger;
-	public ExtentReports extent;
 	public launchPage launchClass;
 	public weatherPage weatherClass;
+	public  Map<String, String> weatherValues;
 
 	@Given("^Launch NDTV web Page$")
 	public void launch_ndtv_web_page() throws Throwable {
 		try {
-			extentReportUtil.Method = extentReportUtil.extent.createTest(Scenario.class, "WebPage Automate Scenario");
-			extentReportUtil.logger = extentReportUtil.Method.createNode("Launch NDTV Web Page");
+			extentReportUtil.method = extentReportUtil.extent.createTest(Scenario.class, "WebPage Automate Scenario");
+			extentReportUtil.logger = extentReportUtil.method.createNode("Launch NDTV Web Page");
 			driver = InitializeDriver();
 
 			driver.get(testURL);
@@ -55,7 +56,7 @@ public class webPage extends browserIntialize {
 	@When("^Reach the weather section$")
 	public void reach_the_weather_section() throws Throwable {
 		try {
-			extentReportUtil.logger = extentReportUtil.Method.createNode("Reach the weather section");
+			extentReportUtil.logger = extentReportUtil.method.createNode("Reach the weather section");
 			launchClass = new launchPage(driver);
 
 			launchClass.subMenu().click();
@@ -78,7 +79,7 @@ public class webPage extends browserIntialize {
 	@And("^Use the 'Pin your city' section, Select Bangalore city$")
 	public void use_the_pin_your_city_section_select_bangalore_city() throws Throwable {
 		try {
-			extentReportUtil.logger = extentReportUtil.Method
+			extentReportUtil.logger = extentReportUtil.method
 					.createNode("Use the 'Pin your city' section, Select Bangalore city");
 
 			weatherClass = new weatherPage(driver);
@@ -109,8 +110,25 @@ public class webPage extends browserIntialize {
 	@Then("^Store city with temperature information$")
 	public void store_city_with_temperature_information() throws Throwable {
 		try {
-			extentReportUtil.logger = extentReportUtil.Method.createNode("Store city with temperature information");
-
+			extentReportUtil.logger = extentReportUtil.method.createNode("Store city with temperature information");
+			weatherClass.weatherStatus(cityName).click();
+			
+			  weatherValues = new LinkedHashMap<String, String>();
+			   
+			
+			  for(int i=0;i<weatherClass.weatherdetails().size();i++) {
+				 String Value=weatherClass.weatherdetails().get(i).getText(); 
+				 if(Value.contains(":")) {
+					 weatherValues.put(Value.split(":")[0], Value.split(":")[1]);
+				 }
+			  }
+			for (Entry<String, String> mapValues : weatherValues.entrySet()) {
+				System.out.println(mapValues.getKey()+" : "+mapValues.getValue());
+			}
+			  
+			extentReportUtil.logger.assignCategory("Store city with temperature information");
+			extentReportUtil.logger.log(Status.PASS, MarkupHelper
+					.createLabel("Store city with temperature information", ExtentColor.GREEN));
 		} catch (Exception e) {
 			extentReportUtil.logger.assignCategory("Store city with temperature information");
 			extentReportUtil.logger.log(Status.ERROR, MarkupHelper.createLabel(

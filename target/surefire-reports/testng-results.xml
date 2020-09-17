@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="15112" started-at="2020-09-16T17:20:36Z" finished-at="2020-09-16T17:20:51Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:cukeRunner.testRunner@50c87b21]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Testvagrant" duration-ms="15112" started-at="2020-09-16T17:20:36Z" finished-at="2020-09-16T17:20:51Z">
+      <class name="cukeRunner.testRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:cukeRunner.testRunner@50c87b21]" name="setUpClass" is-config="true" duration-ms="256" started-at="2020-09-16T17:20:36Z" finished-at="2020-09-16T17:20:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:cukeRunner.testRunner@50c87b21]" name="feature" duration-ms="13518" started-at="2020-09-16T17:20:37Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-09-16T17:20:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Web Automate NDTV Weather Report]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:cukeRunner.testRunner@50c87b21]" name="tearDownClass" is-config="true" duration-ms="45" started-at="2020-09-16T17:20:51Z" finished-at="2020-09-16T17:20:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- cukeRunner.testRunner -->
+    </test> <!-- Testvagrant -->
+  </suite> <!-- Suite -->
+</testng-results>

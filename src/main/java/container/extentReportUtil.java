@@ -22,7 +22,7 @@ public WebDriver driver;
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest scenarioDef;
-	public static ExtentTest Method;
+	public static ExtentTest method;
 	public static ExtentTest logger;
 	public static String reportLocation = "Screenshots//";
 	public ExtentColor color;

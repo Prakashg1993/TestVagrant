@@ -16,7 +16,7 @@ public class launchPage {
 	}
 	
 	By subMenu=By.xpath("//a[@id='h_sub_menu']");
-	By weatherLink=By.xpath("//a[@id='h_sub_menu']");
+	By weatherLink=By.xpath("//a[contains(text(),'WEATHER')]");
 	
 	
 	public WebElement subMenu()

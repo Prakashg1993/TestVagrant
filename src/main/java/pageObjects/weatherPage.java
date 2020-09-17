@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,6 +19,7 @@ public class weatherPage {
 	}
 
 	By searchBox = By.xpath("//input[@id='searchBox']");
+	By weatherdetails = By.xpath("//div[@class='leaflet-popup-content']//following-sibling::span");
 
 	public WebElement searchBox() {
 		EXPwait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));
@@ -33,5 +36,10 @@ public class weatherPage {
 		By weatherStatus = By.xpath("//div[contains(text(),'" + Value + "')]");
 		EXPwait.until(ExpectedConditions.visibilityOfElementLocated(weatherStatus));
 		return driver.findElement(weatherStatus);
+	}
+
+	public List<WebElement> weatherdetails() {
+		EXPwait.until(ExpectedConditions.visibilityOfElementLocated(weatherdetails));
+		return driver.findElements(weatherdetails);
 	}
 }
